@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsOptional, MinLength, MaxLength } from 'class-validator';
+import { IsEmail, IsOptional, MinLength, MaxLength, IsNotEmpty } from 'class-validator';
 
 export class AtualizaAutorDTO {
   @IsNotEmpty({ message: 'O nome não pode ser vazio!' })
