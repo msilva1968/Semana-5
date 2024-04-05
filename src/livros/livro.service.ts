@@ -12,21 +12,21 @@ export class LivroService {
     private readonly livroRepository: Repository<LivroEntity>,
   ) {}
 
-  async criaLvro(livroEntity: LivroEntity) {
+  async criaLivro(livroEntity: LivroEntity) {
     await this.livroRepository.save(livroEntity);
   }
 
   async listaLivro() {
-    const autorSalvo = await this.livroRepository.find();
+    const livroSalvo = await this.livroRepository.find();
 
-    const autorLista = autorSalvo.map(
+    const livroLista = livroSalvo.map(
       (livro) =>
         new ListaLivroDTO(
           livro.titulo,
           livro.sinopse,
         ),
     );
-    return autorLista;
+    return livroLista;
   }
 
   async atualizaLivro(isbn: string, novosDados: AtualizaLivroDTO) {
@@ -35,7 +35,7 @@ export class LivroService {
     await this.livroRepository.save(entityName);
   }
 
-  async deletaAutor(isbn: string) {
+  async deletaLivro(isbn: string) {
     await this.livroRepository.delete(isbn);
   }
 }
