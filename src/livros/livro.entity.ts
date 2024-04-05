@@ -1,12 +1,11 @@
 import {
     Entity,
     Column,
-    CreateDateColumn,
     PrimaryGeneratedColumn,
   } from 'typeorm';
   
   @Entity({ name: 'livros' })
-  export class AutorEntity {
+  export class LivroEntity {
     @PrimaryGeneratedColumn('uuid')
     isbn: string;
     

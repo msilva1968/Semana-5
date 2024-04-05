@@ -1,16 +1,35 @@
-import { IsEmail, IsOptional, MinLength, MaxLength, IsNotEmpty } from 'class-validator';
+import { IsOptional, MinLength, MaxLength, IsNotEmpty } from 'class-validator';
 
 export class AtualizaLivroDTO {
-  @IsNotEmpty({ message: 'O nome não pode ser vazio!' })
+  @IsNotEmpty({ message: 'O título não pode ser vazio!' })
   @IsOptional()
-  nome: string;
+  titulo: string;
 
-  @IsEmail(undefined, { message: 'O e-mail informado é inválido!' })
+  @IsNotEmpty({ message: 'A sinopse não pode ser vazia!' })
+  @MinLength(100, { message: 'A sinopse precisa ter pelo menos 100 caracteres!' })
+  @MaxLength(500, { message: 'A sinopse precisa ter no máximo 500 caracteres!'})
   @IsOptional()
-  email: string;
+  sinopse: string;
 
-  @MinLength(100, { message: 'A biografia precisa ter pelo menos 100 caracteres!' })
-  @MaxLength(500, { message: 'A biografia precisa ter no máximo 500 caracteres!'})
+  @IsNotEmpty({ message: 'O sumario não pode ser vazio!' })
+  @MinLength(100, { message: 'O sumario precisa ter pelo menos 100 caracteres!' })
+  @MaxLength(500, { message: 'O sumario precisa ter no máximo 500 caracteres!'})
   @IsOptional()
-  biografia: string;
+  sumario: string;
+
+  @IsNotEmpty({ message: 'O preço não pode ser vazio!' })
+  @IsOptional()
+  preco: number;
+
+  @IsNotEmpty({ message: 'O preço não pode ser vazio!' })
+  @IsOptional()
+  publicacao: Date;
+
+  @IsNotEmpty({ message: 'O sumario não pode ser vazio!' })
+  @IsOptional()
+  idcategoria: string;
+
+  @IsNotEmpty({ message: 'O sumario não pode ser vazio!' })
+  @IsOptional()
+  idautor: string;
 }
