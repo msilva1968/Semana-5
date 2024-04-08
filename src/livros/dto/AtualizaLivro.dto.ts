@@ -21,15 +21,15 @@ export class AtualizaLivroDTO {
   @IsOptional()
   preco: number;
 
-  @IsNotEmpty({ message: 'O preço não pode ser vazio!' })
+  @IsNotEmpty({ message: 'A data de publicação não pode ser vazia!' })
   @IsOptional()
   publicacao: Date;
 
-  @IsNotEmpty({ message: 'O sumario não pode ser vazio!' })
+  @IsNotEmpty({ message: 'A categoria não pode ser vazio!' })
   @IsOptional()
   idcategoria: string;
 
-  @IsNotEmpty({ message: 'O sumario não pode ser vazio!' })
+  @IsNotEmpty({ message: 'O autor não pode ser vazio!' })
   @IsOptional()
   idautor: string;
 }
